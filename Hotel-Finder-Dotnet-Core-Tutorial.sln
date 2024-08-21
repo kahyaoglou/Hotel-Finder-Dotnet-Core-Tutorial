@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelFinder.Entities", "HotelFinder.Entities\HotelFinder.Entities.csproj", "{80C790D2-2AFB-406E-AD3E-06F483297E1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelFinder.DataAccess", "HotelFinder.DataAccess\HotelFinder.DataAccess.csproj", "{CFDDD0C3-889F-4C81-B8DF-8A4BBDD88927}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80C790D2-2AFB-406E-AD3E-06F483297E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80C790D2-2AFB-406E-AD3E-06F483297E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80C790D2-2AFB-406E-AD3E-06F483297E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80C790D2-2AFB-406E-AD3E-06F483297E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFDDD0C3-889F-4C81-B8DF-8A4BBDD88927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFDDD0C3-889F-4C81-B8DF-8A4BBDD88927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFDDD0C3-889F-4C81-B8DF-8A4BBDD88927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFDDD0C3-889F-4C81-B8DF-8A4BBDD88927}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F818536B-3F3F-443F-8BF8-ACC4E48A240F}
+	EndGlobalSection
+EndGlobal
