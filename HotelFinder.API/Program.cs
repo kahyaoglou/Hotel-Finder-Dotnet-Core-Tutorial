@@ -1,6 +1,15 @@
+using HotelFinder.Business.Abstract;
+using HotelFinder.Business.Concrete;
+using HotelFinder.DataAccess.Abstract;
+using HotelFinder.DataAccess.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(); //!
+builder.Services.AddSingleton<IHotelService, HotelManager>();
+//Senden cotr'da IHotelService istiyorsam bana HotelManager ver.
+builder.Services.AddSingleton<IHotelRepository, HotelRepository>();
+//Senden cotr'da IHotelRepositroy istiyorsam bana HotelRepository ver.
 
 // Add services to the container.
 builder.Services.AddRazorPages();

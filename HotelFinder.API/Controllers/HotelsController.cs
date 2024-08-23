@@ -15,9 +15,9 @@ namespace HotelFinder.API.Controllers
          üzerinden HotelManager örneği oluşturmamız lazım.*/
 
         private IHotelService _hotelService;
-        public HotelsController()
+        public HotelsController(IHotelService hotelService)
         {
-            _hotelService = new HotelManager();
+            _hotelService = hotelService;
         }
 
         //Geriye liste türünden hotel döndüren bir controller metot

@@ -14,10 +14,19 @@ namespace HotelFinder.Business.Concrete
     {
         private IHotelRepository _hotelRepository;
         //IHotelRepository interface türünden bir değişken oluşturduk.
-        public HotelManager()
+       
+        public HotelManager(IHotelRepository hotelRepository)
         {
-            _hotelRepository = new HotelRepository();
-            //Bu değişken, bir HotelRepository örneği olsun dedik.
+            _hotelRepository = hotelRepository;
+
+            /* Önceki yapımız şöyleydi:
+             public HotelManager()
+             {
+                _hotelRepository = new HotelRepository();
+                //Bu değişken, bir HotelRepository örneği olsun dedik.
+             }
+
+            * Böylelikle constructor içerisinde sürekli newlemek durumundan kurutlduk.*/
         }
 
         public Hotel CreateHotel(Hotel hotel)
