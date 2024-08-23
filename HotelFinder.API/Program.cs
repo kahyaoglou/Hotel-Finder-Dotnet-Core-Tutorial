@@ -5,11 +5,20 @@ using HotelFinder.DataAccess.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers(); //!
+builder.Services.AddControllers(); //Controller kullanmak içingerekli.
 builder.Services.AddSingleton<IHotelService, HotelManager>();
 //Senden cotr'da IHotelService istiyorsam bana HotelManager ver.
 builder.Services.AddSingleton<IHotelRepository, HotelRepository>();
 //Senden cotr'da IHotelRepositroy istiyorsam bana HotelRepository ver.
+builder.Services.AddSwaggerDocument(config =>
+{
+    config.PostProcess = (doc =>
+    {
+        doc.Info.Title = "HotelFinder API";
+        doc.Info.Version = "1.0.12";
+    });
+});
+//Swagger için gerekli.
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -31,7 +40,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints => { endpoints.MapControllers(); }); //!
+app.UseOpenApi(); //Swagger için gerekli.
+app.UseSwaggerUi(); //Swagger için gerekli.
+
+app.UseEndpoints(endpoints => { endpoints.MapControllers(); }); //Controller kullanmak için gerekli
 
 app.MapRazorPages();
 

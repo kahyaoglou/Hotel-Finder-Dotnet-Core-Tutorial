@@ -21,6 +21,10 @@ namespace HotelFinder.API.Controllers
         }
 
         //Geriye liste türünden hotel döndüren bir controller metot
+        /// <summary>
+        /// Get All Hotels
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public List<Hotel> Get()
         {
