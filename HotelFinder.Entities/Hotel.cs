@@ -13,9 +13,11 @@ namespace HotelFinder.Entities
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required] //Bu alan benim için gerekli.
         [StringLength(50)] //Nvarchar(50)
         public string Name { get; set; }
 
+        [Required] //Bu alan benim için gerekli.
         [StringLength(50)] //Nvarchar(50)
         public string City { get; set; }
     }
