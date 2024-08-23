@@ -36,7 +36,8 @@ namespace HotelFinder.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Get()
+        [Route("[action]")]
+        public IActionResult Get() //api/hotels/getallhotels
         {
             var hotels = _hotelService.GetAllHotels();
             return Ok(hotels); //200 + data
@@ -46,9 +47,28 @@ namespace HotelFinder.API.Controllers
         //Geriye hotel döndüren,
         //Aldığı id'yi parametre kullanan bir controller metot.
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [Route("[action]/{id}")] //api/hotels/gethotelbyid/2
+        public IActionResult GetHotelById(int id)
         {
             var hotel = _hotelService.GetHotelById(id);
+            if (hotel != null)
+            {
+                return Ok(hotel); //200 + data
+            }
+            return NotFound(); //404
+        }
+
+        //Mevcut geliştirmede parametre alan iki adet Get endpointi var.
+        //Bunlar birbirini overload etmektedirler.
+        //Eğer bu endpointlere istek atarsak hata alırız.
+        //Çünkü hangi endpointi seçeceğini bilemez.
+        //Göndereceğimiz int 2 ya da string titanic değerlerinin hangi endpointe düşeceği belli değildir.
+        //Bizim bu durumda bu endpointlere Route vermemiz gerekir
+        [HttpGet("{name}")]
+        [Route("[action]/{name}")] //api/hotels/gethotelbyname/titanic
+        public IActionResult GetHotelByName(string name)
+        {
+            var hotel = _hotelService.GetHotelByName(name);
             if (hotel != null)
             {
                 return Ok(hotel); //200 + data
@@ -60,7 +80,8 @@ namespace HotelFinder.API.Controllers
         //Hotel türünden bir hotel parametre alan
         //Body kısmında hotel barındıran bir controller metot.
         [HttpPost]
-        public IActionResult Post([FromBody] Hotel hotel)
+        [Route("[action]")] //api/hotels/createhotel
+        public IActionResult CreateHotel([FromBody] Hotel hotel)
         {
             var createdHotel = _hotelService.CreateHotel(hotel);
             return CreatedAtAction("Get", new { id = createdHotel.Id }, createdHotel); //201 + Data
@@ -71,7 +92,8 @@ namespace HotelFinder.API.Controllers
         //Hotel türünden bir hotel parametre alan
         //Body kısmında hotel barındıran bir controller metot.
         [HttpPut]
-        public IActionResult Put([FromBody] Hotel hotel)
+        [Route("[action]")] //api/hotels/createhotel
+        public IActionResult UpdateHotel([FromBody] Hotel hotel)
         {
             if (_hotelService.GetHotelById(hotel.Id) != null)
             {
@@ -84,7 +106,8 @@ namespace HotelFinder.API.Controllers
         //Geriye bir şey döndürmeyen,
         //Aldığı id'yi parametre kullanan bir controller metot.
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [Route("[action]/{id}")] //api/hotels/deletehotel/2
+        public IActionResult DeleteHotel(int id)
         {
             if (_hotelService.GetHotelById(id) != null)
             {

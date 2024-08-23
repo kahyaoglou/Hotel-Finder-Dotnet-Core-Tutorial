@@ -19,6 +19,8 @@ namespace HotelFinder.DataAccess.Abstract
         //Geriye liste türünden Hotel'leri döndürecek. Parametre almayacak.
         Hotel GetHotelById(int id);
         //Geriye Hotel döndürecek. Parametre id alacak.
+        Hotel GetHotelByName(string name);
+        //Geriye Hotel döndürecek. Parametre name alacak.
         Hotel CreateHotel(Hotel hotel);
         //Geriye Hotel döndürecek. Parametre Hotel alacak.
         Hotel UpdateHotel(Hotel hotel);
