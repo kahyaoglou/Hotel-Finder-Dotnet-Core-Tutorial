@@ -15,7 +15,7 @@ namespace HotelFinder.DataAccess.Concrete
         {
             using (var hotelDbContext = new HotelDbContext())
             {
-                hotelDbContext.Hotels.Add(hotel);
+                await hotelDbContext.Hotels.AddAsync(hotel);
                 await hotelDbContext.SaveChangesAsync();
                 return hotel;
             }

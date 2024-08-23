@@ -84,7 +84,7 @@ namespace HotelFinder.API.Controllers
         public async Task<IActionResult> CreateHotel([FromBody] Hotel hotel)
         {
             var createdHotel = await _hotelService.CreateHotel(hotel);
-            return CreatedAtAction("Get", new { id = createdHotel.Id }, createdHotel); //201 + Data
+            return CreatedAtAction("GetHotelById", new { id = createdHotel.Id }, createdHotel); //201 + Data
             //Required olarak etiketlediğimiz verilerle yapalım geliştirmeyi.
         }
 
