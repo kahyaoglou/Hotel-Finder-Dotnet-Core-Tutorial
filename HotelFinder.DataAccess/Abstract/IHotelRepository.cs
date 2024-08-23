@@ -1,7 +1,6 @@
 ﻿//Bütün yapıda Dependency Injection kullanacağız.
 //Bu sebeple bu katmana metotlarımızı yazarken interface tanımlamalıyız.
 
-
 using HotelFinder.DataAccess.Abstract;
 using HotelFinder.DataAccess.Concrete;
 using HotelFinder.Entities;
