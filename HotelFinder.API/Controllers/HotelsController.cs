@@ -37,7 +37,7 @@ namespace HotelFinder.API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("[action]")]
-        public IActionResult Get() //api/hotels/getallhotels
+        public IActionResult GetAllHotels() //api/hotels/getallhotels
         {
             var hotels = _hotelService.GetAllHotels();
             return Ok(hotels); //200 + data
@@ -46,7 +46,7 @@ namespace HotelFinder.API.Controllers
         //Api'den id alan,
         //Geriye hotel döndüren,
         //Aldığı id'yi parametre kullanan bir controller metot.
-        [HttpGet("{id}")]
+        [HttpGet]
         [Route("[action]/{id}")] //api/hotels/gethotelbyid/2
         public IActionResult GetHotelById(int id)
         {
@@ -64,7 +64,7 @@ namespace HotelFinder.API.Controllers
         //Çünkü hangi endpointi seçeceğini bilemez.
         //Göndereceğimiz int 2 ya da string titanic değerlerinin hangi endpointe düşeceği belli değildir.
         //Bizim bu durumda bu endpointlere Route vermemiz gerekir
-        [HttpGet("{name}")]
+        [HttpGet]
         [Route("[action]/{name}")] //api/hotels/gethotelbyname/titanic
         public IActionResult GetHotelByName(string name)
         {
@@ -92,20 +92,20 @@ namespace HotelFinder.API.Controllers
         //Hotel türünden bir hotel parametre alan
         //Body kısmında hotel barındıran bir controller metot.
         [HttpPut]
-        [Route("[action]")] //api/hotels/createhotel
+        [Route("[action]")] //api/hotels/updatehotel
         public IActionResult UpdateHotel([FromBody] Hotel hotel)
         {
             if (_hotelService.GetHotelById(hotel.Id) != null)
             {
                 return Ok(_hotelService.UpdateHotel(hotel)); //200 + Data
             }
-            return NotFound(); //404
+            return NotFound();
         }
 
         //Api'den id alan,
         //Geriye bir şey döndürmeyen,
         //Aldığı id'yi parametre kullanan bir controller metot.
-        [HttpDelete("{id}")]
+        [HttpDelete]
         [Route("[action]/{id}")] //api/hotels/deletehotel/2
         public IActionResult DeleteHotel(int id)
         {
@@ -114,7 +114,7 @@ namespace HotelFinder.API.Controllers
                 _hotelService.DeleteHotel(id);
                 return Ok(); //200
             }
-            return NotFound(); //404
+            return NotFound();
         }
     }
 }
