@@ -9,17 +9,17 @@ namespace HotelFinder.Business.Abstract
 {
     public interface IHotelService
     {
-        List<Hotel> GetAllHotels();
+        Task<List<Hotel>> GetAllHotels();
         //Geriye liste türünden Hotel'leri döndürecek. Parametre almayacak.
-        Hotel GetHotelById(int id);
+        Task<Hotel> GetHotelById(int id);
         //Geriye Hotel döndürecek. Parametre id alacak.
-        Hotel GetHotelByName(string name);
+        Task<Hotel> GetHotelByName(string name);
         //Geriye Hotel döndürecek. Parametre name alacak.
-        Hotel CreateHotel(Hotel hotel);
+        Task<Hotel> CreateHotel(Hotel hotel);
         //Geriye Hotel döndürecek. Parametre Hotel alacak.
-        Hotel UpdateHotel(Hotel hotel);
+        Task<Hotel> UpdateHotel(Hotel hotel);
         //Geriye Hotel döndürecek. Parametre Hotel alacak.
-        void DeleteHotel(int id);
+        Task DeleteHotel(int id);
         //Geriye bir şey döndürmeyecek. Parametre id alacak.
     }
 }
